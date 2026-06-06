@@ -44,12 +44,22 @@ export class AppComponent implements AfterViewInit {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
 
     // Observe all elements with animate-on-scroll class
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
     });
+
+    // Fallback: show elements already in viewport on load
+    setTimeout(() => {
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    }, 300);
 
     // Also observe any future elements
     const mutationObserver = new MutationObserver(() => {
