@@ -1,0 +1,115 @@
+<section class="catalogo-section">
+  <div class="container">
+    <!-- Featured Products Section (Clipboard style) -->
+    <div class="animate-on-scroll">
+      <h2 class="section-title">{{ 'catalogo.title.destacados' | translate }}</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        {{ 'catalogo.subtitle.destacados' | translate }}
+      </p>
+    </div>
+
+    <div class="featured-grid animate-on-scroll">
+      <div class="featured-card" *ngFor="let producto of productosDestacados">
+        <div class="featured-card-badge">{{ 'catalogo.badge' | translate }}</div>
+        <div class="featured-card-img">
+          <img [src]="producto.imagen" [alt]="producto.nombre" loading="lazy" (error)="onImgError($event)">
+          <div class="featured-card-overlay">
+            <div class="featured-card-icon" [style.background]="producto.color + '20'" [style.color]="'#fff'">
+              <i [class]="producto.icono"></i>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card-info">
+          <span class="featured-card-codigo">{{ producto.codigo }}</span>
+          <h3 class="featured-card-title">{{ producto.nombre }}</h3>
+          <p class="featured-card-desc">{{ producto.descripcion }}</p>
+        </div>
+        <button class="featured-card-btn" (click)="cotizarPorWhatsApp(producto)">
+          <i class="fab fa-whatsapp"></i>
+          {{ 'catalogo.btn.consultar' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Full Catalog Section with Filters -->
+    <div class="catalogo-wrapper animate-on-scroll" style="margin-top: 80px;">
+      <h2 class="section-title">{{ 'catalogo.title.completo' | translate }}</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        {{ 'catalogo.subtitle.completo' | translate }}
+      </p>
+
+      <!-- Search Bar -->
+      <div class="catalogo-search">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            class="search-input"
+            [(ngModel)]="searchTerm"
+            placeholder="{{ 'catalogo.search.placeholder' | translate }}"
+            (input)="onSearch($event)">
+          <button class="search-clear" *ngIf="searchTerm" (click)="clearSearch()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="catalogo-filters">
+        <button 
+          *ngFor="let cat of categorias" 
+          class="filter-btn" 
+          [class.active]="categoriaActiva === cat.id"
+          (click)="filtrar(cat.id)">
+          <i [class]="cat.icono"></i>
+          {{ 'catalogo.filter.' + cat.id | translate }}
+        </button>
+      </div>
+
+      <!-- Products Grid (Mosaic/Clipboard Style) -->
+      <div class="productos-grid">
+        <div 
+          class="producto-card" 
+          *ngFor="let producto of productosFiltrados"
+          [style.animation-delay]="producto.id * 0.05 + 's'">
+          <div class="producto-card-inner">
+            <div class="producto-card-img">
+              <img 
+                [src]="producto.imagen" 
+                [alt]="producto.nombre" 
+                loading="lazy" 
+                (error)="onImgError($event)"
+                [class.img-zoom]="['78C4XK0', '78C4XM0', '78C4XY0', '78C4XC0'].includes(producto.codigo)">
+            </div>
+
+            <div class="producto-card-header">
+              <div class="producto-icon" [style.background]="producto.color + '12'" [style.color]="producto.color">
+                <i [class]="producto.icono"></i>
+              </div>
+              <span class="producto-codigo">{{ producto.codigo }}</span>
+            </div>
+            <div class="producto-body">
+              <h3 class="producto-nombre">{{ producto.nombre }}</h3>
+              <p class="producto-descripcion">{{ producto.descripcion }}</p>
+            </div>
+
+            <div class="producto-footer">
+              <button class="producto-btn" (click)="cotizarPorWhatsApp(producto)">
+                <i class="fab fa-whatsapp"></i>
+                {{ 'catalogo.btn.cotizar' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" *ngIf="productosFiltrados.length === 0">
+        <i class="fas fa-box-open"></i>
+        <p>{{ searchTerm ? ('catalogo.noresults' | translate) : ('catalogo.empty' | translate) }}</p>
+      </div>
+    </div>
+  </div>
+</section>

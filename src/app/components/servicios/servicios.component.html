@@ -1,0 +1,26 @@
+<section class="servicios-section">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <h2 class="section-title">{{ 'servicios.title' | translate }}</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        {{ 'servicios.subtitle' | translate }}
+      </p>
+    </div>
+
+    <div class="servicios-grid animate-on-scroll">
+      <div class="servicio-card" *ngFor="let servicio of servicios; let i = index" [style.animation-delay]="i * 0.1 + 's'">
+        <div class="servicio-card-inner">
+          <div class="servicio-icon-wrapper">
+            <div class="servicio-icon" [style.background]="servicio.color + '12'" [style.color]="servicio.color">
+              <i [class]="servicio.icono"></i>
+            </div>
+          </div>
+          <h3 class="servicio-titulo">{{ 'servicios.serv' + (i + 1) + '.titulo' | translate }}</h3>
+          <p class="servicio-descripcion">{{ 'servicios.serv' + (i + 1) + '.desc' | translate }}</p>
+          <div class="servicio-line" [style.background]="servicio.color"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

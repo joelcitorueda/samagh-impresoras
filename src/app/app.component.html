@@ -1,0 +1,28 @@
+<app-header></app-header>
+<main>
+  <section id="inicio">
+    <app-hero></app-hero>
+  </section>
+  <section id="catalogo" class="section">
+    <app-catalogo></app-catalogo>
+  </section>
+  <section id="nosotros" class="section">
+    <app-nosotros></app-nosotros>
+  </section>
+  <section id="servicios" class="section">
+    <app-servicios></app-servicios>
+  </section>
+  <section id="contacto" class="section">
+    <app-contacto></app-contacto>
+  </section>
+</main>
+<app-footer></app-footer>
+
+<!-- Scroll to top button -->
+<button 
+  class="scroll-top-btn" 
+  [class.visible]="showScrollTop"
+  (click)="scrollToTop()"
+  aria-label="Volver arriba">
+  <i class="fas fa-arrow-up"></i>
+</button>

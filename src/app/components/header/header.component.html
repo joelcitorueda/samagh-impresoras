@@ -1,0 +1,56 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container header-container">
+    <a class="logo" (click)="scrollTo('inicio')" (keydown.enter)="scrollTo('inicio')" tabindex="0">
+      <div class="logo-img-wrapper">
+        <img src="images/logo-samagh.png" alt="SAMAGH BIENES Y SERVICIOS" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">SAMAGH</span>
+        <span class="logo-subtitle">{{ 'header.subtitle' | translate }}</span>
+      </div>
+    </a>
+
+    <!-- Language Toggle -->
+    <div class="header-lang">
+      <button class="lang-btn" (click)="translateService.toggleIdioma()" [class.active]="translateService.idiomaActual() === 'es'">
+        <span class="lang-text" [class.active]="translateService.idiomaActual() === 'es'">ES</span>
+        <span class="lang-separator">|</span>
+        <span class="lang-text" [class.active]="translateService.idiomaActual() === 'en'">EN</span>
+      </button>
+    </div>
+
+    <!-- Top bar contact info - Solo WhatsApp -->
+    <div class="header-contact">
+      <a href="https://wa.me/59172988845" target="_blank" class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <span>+591 72988845</span>
+      </a>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" [class.open]="isMenuOpen">
+    <div class="container nav-container">          <ul class="nav-links">
+        <li><a (click)="scrollTo('inicio')" (keydown.enter)="scrollTo('inicio')" tabindex="0">{{ 'header.inicio' | translate }}</a></li>
+        <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'header.catalogo' | translate }}</a></li>
+        <li><a (click)="scrollTo('nosotros')" (keydown.enter)="scrollTo('nosotros')" tabindex="0">{{ 'header.nosotros' | translate }}</a></li>
+        <li><a (click)="scrollTo('servicios')" (keydown.enter)="scrollTo('servicios')" tabindex="0">{{ 'header.servicios' | translate }}</a></li>
+        <li><a (click)="scrollTo('contacto')" (keydown.enter)="scrollTo('contacto')" tabindex="0">{{ 'header.contacto' | translate }}</a></li>
+      </ul>
+      <a class="btn btn-primary nav-cta" (click)="scrollTo('contacto')" (keydown.enter)="scrollTo('contacto')" tabindex="0">
+        <i class="fab fa-whatsapp"></i>
+        {{ 'header.cotizar' | translate }}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile overlay -->
+<div class="menu-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>

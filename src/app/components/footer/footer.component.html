@@ -1,0 +1,80 @@
+<footer class="footer">
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--color-off-white)"></path>
+    </svg>
+  </div>
+
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Logo & Description -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-wrapper">
+              <img src="images/logo-samagh.png" alt="SAMAGH" class="footer-logo-img">
+            </div>
+            <div class="footer-logo-text">
+              <span>SAMAGH</span>
+              <span class="footer-logo-sub">{{ 'footer.logo.sub' | translate }}</span>
+            </div>
+          </div>
+          <p class="footer-description">
+            {{ 'footer.descripcion' | translate }}
+          </p>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h3 class="footer-heading">{{ 'footer.links.title' | translate }}</h3>
+          <ul>
+            <li><a (click)="scrollTo('inicio')" (keydown.enter)="scrollTo('inicio')" tabindex="0">{{ 'header.inicio' | translate }}</a></li>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'header.catalogo' | translate }}</a></li>
+            <li><a (click)="scrollTo('nosotros')" (keydown.enter)="scrollTo('nosotros')" tabindex="0">{{ 'header.nosotros' | translate }}</a></li>
+            <li><a (click)="scrollTo('servicios')" (keydown.enter)="scrollTo('servicios')" tabindex="0">{{ 'header.servicios' | translate }}</a></li>
+            <li><a (click)="scrollTo('contacto')" (keydown.enter)="scrollTo('contacto')" tabindex="0">{{ 'header.contacto' | translate }}</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="footer-links">
+          <h3 class="footer-heading">{{ 'footer.productos.title' | translate }}</h3>
+          <ul>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'footer.productos.toners' | translate }}</a></li>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'footer.productos.impresoras' | translate }}</a></li>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'footer.productos.unidades' | translate }}</a></li>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'footer.productos.kits' | translate }}</a></li>
+            <li><a (click)="scrollTo('catalogo')" (keydown.enter)="scrollTo('catalogo')" tabindex="0">{{ 'footer.productos.suministros' | translate }}</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h3 class="footer-heading">{{ 'footer.contacto.title' | translate }}</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ 'contacto.info.direccion.valor' | translate }}</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+591 72988845</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>ventas&#64;samagh.org</span>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2026 SAMAGH BIENES Y SERVICIOS. {{ 'footer.derechos' | translate }}</p>
+    </div>
+  </div>
+</footer>

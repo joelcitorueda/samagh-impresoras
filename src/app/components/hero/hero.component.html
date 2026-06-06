@@ -1,0 +1,64 @@
+<section class="hero" id="hero">
+  <!-- Background particles/overlay -->
+  <div class="hero-bg">
+    <div class="hero-pattern"></div>
+    <div class="hero-gradient"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text animate-on-scroll">
+      <span class="hero-badge">
+        <i class="fas fa-check-circle"></i>
+        {{ 'hero.badge' | translate }}
+      </span>
+      <h1 class="hero-title">
+        <span class="text-highlight">SAMAGH</span> {{ 'hero.title1' | translate }}<br>
+        {{ 'hero.title2' | translate }}
+      </h1>
+      <p class="hero-description">
+        {{ 'hero.description' | translate }}
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="scrollToCatalogo()">
+          <i class="fas fa-box-open"></i>
+          {{ 'hero.btn.catalogo' | translate }}
+        </button>
+        <button class="btn btn-outline" (click)="scrollToContacto()">
+          <i class="fas fa-phone-alt"></i>
+          {{ 'hero.btn.contacto' | translate }}
+        </button>
+      </div>
+
+
+    </div>
+
+    <div class="hero-visual animate-on-scroll">
+      <div class="hero-image-wrapper">
+        <div class="hero-image-glow"></div>
+        <img src="images/prueva-1.png" alt="SAMAGH" class="hero-showcase-img" loading="lazy">
+        <div class="hero-image-shine"></div>
+        <div class="hero-float-badges">
+          <div class="float-badge badge-left">
+            <i class="fas fa-shield-alt"></i>
+            <span>{{ 'hero.badge.left' | translate }}</span>
+          </div>
+          <div class="float-badge badge-right">
+            <i class="fas fa-truck"></i>
+            <span>{{ 'hero.badge.right' | translate }}</span>
+          </div>
+          <div class="float-badge badge-bottom">
+            <i class="fas fa-handshake"></i>
+            <span>{{ 'hero.badge.bottom' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave divider -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="var(--color-white)"></path>
+    </svg>
+  </div>
+</section>
