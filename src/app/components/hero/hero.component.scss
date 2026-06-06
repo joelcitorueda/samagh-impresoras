@@ -160,7 +160,6 @@
   z-index: 1;
   filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
   animation: gentle-float 6s ease-in-out infinite;
-  mix-blend-mode: multiply;
 }
 
 @keyframes gentle-float {
